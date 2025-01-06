@@ -30,3 +30,36 @@ class Solution:
             expected_num = nums[i-1] + 1
             if nums[i] != expected_num:
                 return expected_num
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        #cyclic sort
+        #timecomplexitiy: o(n)
+        n = len(nums)
+        output = [-1]*(n+1)
+        for ele in nums:
+            output[ele] = ele
+        for idx in range(0, len(output)):
+            if output[idx] == -1:
+                return idx
+        return n
+        
+        """
+        #time complexity: o(n^2)
+        n = len(nums)
+        for ele in range(0,n):
+            if ele not in nums:
+                return ele
+        return n
+        """
+
+        """
+        #timecomplexity: nlog(n)
+        s_nums = sorted(nums)
+        #iterate
+        for i in range(0, len(s_nums)):
+            if i !=s_nums[i]:
+                return i
+        return len(nums)
+        """
+
