@@ -22,5 +22,19 @@ Since an empty string reads the same forward and backward, it is a palindrome.
  
 '''
 
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s_new = ""
+        for c in s:
+            if c.isalnum():
+                s_new+=''.join(c.lower())
 
+        l = 0
+        r = len(s_new)-1
 
+        while l<r:
+            if s_new[l] !=s_new[r]:
+                return False
+            l+=1
+            r-=1
+        return True

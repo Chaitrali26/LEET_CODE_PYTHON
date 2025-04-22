@@ -5,8 +5,6 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.
 
- 
-
 Example 1:
 
 Input: nums = [2,7,11,15], target = 9
@@ -22,22 +20,24 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 
 '''
-
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        nums = [2,7,11,15]
-        target = 9 
-        #ouptut [0,1]
-        #output should be a dict
-        num_indices = {}
+        # nums = [2,7,11,15], target = 9
 
-        # check if target - each element is in the given array.
-        n = len(nums)
-        for i in nums(0, n):
-            #i = 0
-            # 9 - 
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if int(nums[j]) == target -int(nums[i]):
+                    return [i,j]
+        return []
+
+class Solution2:
+    def twoSum2(self, nums: List[int], target: int) -> List[int]:
+        # nums = [2,7,11,15], target = 9
+        hashmap = {}
+        for i in range(len(nums)):
             complement = target - nums[i]
-            if complement in num_indices:
-                return [num_indices[complement], i]
-            num_indices[nums[i]] = i 
-        
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] =i
+        return []
+
